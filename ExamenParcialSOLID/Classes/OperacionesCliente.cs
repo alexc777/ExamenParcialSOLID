@@ -1,6 +1,7 @@
 ﻿using ExamenParcialSOLID.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,13 @@ namespace ExamenParcialSOLID.Classes
             Console.WriteLine("***********************");
             Console.WriteLine("\n");
             Console.WriteLine("Cliente Creado");
+            Console.WriteLine("\n");
+            foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(cliente))
+            {
+                string name = descriptor.Name;
+                object value = descriptor.GetValue(cliente);
+                Console.WriteLine("{0}={1}", name, value);
+            }
             Console.WriteLine("\n");
             Console.WriteLine("***********************");
             Console.WriteLine("\n");
