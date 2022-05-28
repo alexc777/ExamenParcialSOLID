@@ -7,8 +7,31 @@ using System.Threading.Tasks;
 
 namespace ExamenParcialSOLID.Classes
 {
-    public class OperacionesCliente : IOperacionesCliente, IDescuentosCliente
+    public class OperacionesCliente : IOperacionesCliente, IDescuentosCliente, ICalcularRubro
     {
+        public double determinarPorcentajeRubro(Rubros rubro)
+        {
+            double porcentaje = 0;
+
+            if (rubro.idRubro == 1)
+            {
+                //gastos
+                porcentaje = 0.05;
+            }
+            else if (rubro.idRubro == 2)
+            {
+                // publicidad
+                porcentaje = 0.1;
+            }
+            else if (rubro.idRubro == 3)
+            {
+                // caja chica
+                porcentaje = 0.85;
+            }
+
+            return porcentaje;
+        }
+
         public double calcularAhorro(Cliente cliente)
         {
             throw new NotImplementedException();
@@ -37,7 +60,13 @@ namespace ExamenParcialSOLID.Classes
 
         public void crear(Cliente cliente)
         {
-            throw new NotImplementedException();
+            //simulación de la creación de un cliente.
+            Console.WriteLine("***********************");
+            Console.WriteLine("\n");
+            Console.WriteLine("Cliente Creado");
+            Console.WriteLine("\n");
+            Console.WriteLine("***********************");
+            Console.WriteLine("\n");
         }
 
         public void editar(Cliente cliente)
